@@ -296,7 +296,7 @@ void Viewer::drawModel(bool drawEdges)
 		glUniform4fv(uniformVars[uEdgeColor],1,(GLfloat*)&pmxInfo->materials[m]->edgeColor);
 		glUniform1f(uniformVars[uEdgeSize],glm::normalize(pmxInfo->materials[m]->edgeSize));
 		
-		glUniform1f(uniformVars[uSphereMode],glm::normalize(pmxInfo->materials[m]->sphereMode));
+		glUniform1i(uniformVars[uSphereMode],pmxInfo->materials[m]->sphereMode);
         
 		glDrawElements(GL_TRIANGLES, (pmxInfo->materials[m]->hasFaceNum), GL_UNSIGNED_INT, BUFFER_OFFSET(sizeof(GLuint)*faceCount));
 		faceCount+=pmxInfo->materials[m]->hasFaceNum;
